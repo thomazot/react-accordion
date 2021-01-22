@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-accordion"]=this["webpackJsonpreact-accordion"]||[]).push([[0],{9:function(e,c,t){"use strict";t.r(c);var n=t(0),r=t(1),i=t.n(r),o=t(3),s=function(){return Object(n.jsx)("div",{children:"Home Page"})};var a=function(){return Object(n.jsx)("div",{className:"App",children:Object(n.jsx)(s,{})})};t.n(o).a.render(Object(n.jsx)(i.a.StrictMode,{children:Object(n.jsx)(a,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.bcb9aeee.chunk.js.map
