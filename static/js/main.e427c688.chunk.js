@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-accordion"]=this["webpackJsonpreact-accordion"]||[]).push([[0],{9:function(c,e,t){"use strict";t.r(e);var n=t(1),r=t(0),a=t.n(r),o=t(3);var s=function(){return Object(n.jsx)("div",{className:"App"})};t.n(o).a.render(Object(n.jsx)(a.a.StrictMode,{children:Object(n.jsx)(s,{})}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.e427c688.chunk.js.map
