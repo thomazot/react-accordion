@@ -5,7 +5,10 @@ import Api from "services"
 const Home = () => {
   const [data, setData] = useState<IAccordion[]>([])
   const getData = useCallback(
-    () => Api<IAccordion[]>("/data/db.json").then((items) => setData(items)),
+    () =>
+      Api<IAccordion[]>("/react-accordion/data/db.json").then((items) =>
+        setData(items)
+      ),
     [setData]
   )
 
