@@ -9,5 +9,5 @@ describe("<AccordionItem /> component", () => {
 })
 
 function createComponent() {
-  return render(<AccordionItem />)
+  return render(<AccordionItem id="1" name="name" level={1} children={[]} />)
 }
