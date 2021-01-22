@@ -12,6 +12,6 @@ describe("<Accordion /> component", () => {
   // })
 })
 
-function createComponent(items) {
-  return render(<Accordion />)
+function createComponent() {
+  return render(<Accordion items={[]} />)
 }
