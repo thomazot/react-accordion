@@ -1,13 +1,12 @@
-import Accordion, { IAccordion } from "components/Accordion"
+import Accordion from "components/Accordion"
 import React, { useEffect, useState } from "react"
 import Api from "services"
+import IItem from "typings/IITem"
 
 const Home = () => {
-  const [data, setData] = useState<IAccordion[]>([])
+  const [data, setData] = useState<IItem[]>([])
   useEffect(() => {
-    Api<IAccordion[]>("/react-accordion/data/db.json").then((data) =>
-      setData(data)
-    )
+    Api<IItem[]>("/react-accordion/data/db.json").then((data) => setData(data))
   }, [setData])
 
   return (

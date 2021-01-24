@@ -1,20 +1,35 @@
 import React from "react"
-import { IAccordion } from "components/Accordion"
 import AccordionItem from "components/AccordionItem"
+import * as Style from "./Accordion.style"
+import IItem from "typings/IITem"
+
+interface AccordionProp {
+  items: IItem[]
+  parentChecked?: boolean
+  nv?: number
+  onChecked?: (checked: boolean) => void
+  expanded?: boolean
+}
 
 const Accordion = ({
   items,
-  parentChecked = false
-}: {
-  items: IAccordion[]
-  parentChecked?: boolean
-}) => {
+  parentChecked = false,
+  nv = 1,
+  onChecked = () => {},
+  expanded = true
+}: AccordionProp) => {
   return (
-    <ul>
+    <Style.Accordion aria-expanded={expanded}>
       {items.map((item) => (
-        <AccordionItem key={item.id} {...item} parentChecked={parentChecked} />
+        <AccordionItem
+          key={item.id}
+          item={item}
+          parentChecked={parentChecked}
+          nv={nv}
+          onChecked={onChecked}
+        />
       ))}
-    </ul>
+    </Style.Accordion>
   )
 }
 

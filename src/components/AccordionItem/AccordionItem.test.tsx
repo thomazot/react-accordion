@@ -25,6 +25,10 @@ describe("<AccordionItem /> component", () => {
 
 function createComponent() {
   return render(
-    <AccordionItem id="1" name="João Carlos" level={1} children={[]} />
+    <AccordionItem
+      item={{ id: "1", name: "João Carlos", level: 0, children: [] }}
+      nv={1}
+      onChecked={() => {}}
+    />
   )
 }
