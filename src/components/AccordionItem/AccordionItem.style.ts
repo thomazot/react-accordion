@@ -13,6 +13,8 @@ export const AccordionItem = styled.li<LiProps>`
   list-style: none;
   padding: 0;
   margin: 0;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 
   > div {
     display: flex;
@@ -32,7 +34,7 @@ export const AccordionItem = styled.li<LiProps>`
 
       ${(props) =>
         `
-        padding-left: ${props.nv * 26}px;
+        padding-left: ${(props.nv + 1) * 26}px;
       `}
 
       &:before {
@@ -43,11 +45,11 @@ export const AccordionItem = styled.li<LiProps>`
         border: solid 1px rgba(0, 0, 0, 0.2);
         border-radius: 3px;
         margin-right: 8px;
-        ${({ count, total = 0 }) =>
+        ${({ count, total = 0, theme }) =>
           count > 0 &&
           count !== total &&
           `
-          background: #00a3ea url(${IconLess}) no-repeat center center;
+          background: var(--primary) url(${IconLess}) no-repeat center center;
           background-size: 10px 10px;
         `}
       }
@@ -59,14 +61,14 @@ export const AccordionItem = styled.li<LiProps>`
     }
 
     input:checked + label:before {
-      ${({ count, total = 0 }) =>
+      ${({ count, total = 0, theme }) =>
         count < total
           ? `
-          background: #00a3ea url(${IconLess}) no-repeat center center;
+          background: var(--primary) url(${IconLess}) no-repeat center center;
           background-size: 10px 10px;
         `
           : `
-          background: #00a3ea url(${IconCheck}) no-repeat center center;
+          background: var(--primary) url(${IconCheck}) no-repeat center center;
           background-size: 10px 10px;
         `}
     }
@@ -89,7 +91,7 @@ export const AccordionItem = styled.li<LiProps>`
       }
 
       &:hover {
-        color: #00a3ea;
+        color: var(--primary);
       }
     }
   }
