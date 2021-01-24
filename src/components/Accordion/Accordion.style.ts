@@ -8,10 +8,11 @@ export const Accordion = styled.ul`
   visibility: hidden;
   max-height: 0;
   overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 
   &[aria-expanded="true"] {
     visibility: visible;
-    max-height: 100vh;
+    max-height: none;
     overflow-y: auto;
   }
 `
