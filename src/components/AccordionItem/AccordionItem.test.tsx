@@ -48,7 +48,7 @@ describe("<AccordionItem /> component", () => {
   })
 })
 
-const _DEFAULT_ITEM_ = {
+const _DEFAULT_ITEM_: IItem = {
   id: "1",
   name: "João Carlos",
   level: 0,
@@ -57,14 +57,15 @@ const _DEFAULT_ITEM_ = {
       id: "2",
       name: "Maria Clara",
       level: 1,
-      children: []
+      children: [],
+      checked: undefined
     }
   ],
   checked: undefined
 }
 
 function createComponent(item = {}) {
-  const _ITEM_: IItem = {
+  const _ITEM_ = {
     ..._DEFAULT_ITEM_,
     ...item
   }

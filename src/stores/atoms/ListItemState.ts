@@ -2,7 +2,7 @@ import { atom } from "recoil"
 import Api from "services"
 import IItem from "typings/IITem"
 
-const KEY_LOCAL_STORAGE = "@KEY_LOCAL_STORAGE"
+export const KEY_LOCAL_STORAGE = "@KEY_LOCAL_STORAGE"
 
 const ListItemState = atom<IItem[]>({
   key: "@LIST_ITEM_STATE",
