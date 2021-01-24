@@ -9,10 +9,12 @@ describe("<Home /> pages", () => {
   beforeAll(() => {
     window.localStorage.removeItem(KEY_LOCAL_STORAGE)
   })
+
   it("Should render component", () => {
     const { container } = createComponent()
     expect(container).toBeInTheDocument()
   })
+
   it("Should request api and setState", async () => {
     jest.spyOn(global, "fetch").mockResolvedValue({
       status: 200,
