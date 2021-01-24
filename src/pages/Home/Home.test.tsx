@@ -9,18 +9,18 @@ describe("<Home /> pages", () => {
     const { container } = createComponent()
     expect(container).toBeInTheDocument()
   })
-  // it("Should request api and setState", async () => {
-  //   jest.spyOn(global, "fetch").mockResolvedValue({
-  //     status: 200,
-  //     json: async () => []
-  //   } as Response)
+  it("Should request api and setState", async () => {
+    jest.spyOn(global, "fetch").mockResolvedValue({
+      status: 200,
+      json: async () => []
+    } as Response)
 
-  //   act(() => {
-  //     createComponent()
-  //   })
+    act(() => {
+      createComponent()
+    })
 
-  //   await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1))
-  // })
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1))
+  })
 })
 
 function createComponent() {
