@@ -1,17 +1,14 @@
 import Accordion from "components/Accordion"
-import React, { useEffect, useState } from "react"
-import Api from "services"
-import IItem from "typings/IITem"
+import React from "react"
+import { useRecoilValue } from "recoil"
+import ListItemState from "stores/atoms/ListItemState"
 
 const Home = () => {
-  const [data, setData] = useState<IItem[]>([])
-  useEffect(() => {
-    Api<IItem[]>("/react-accordion/data/db.json").then((data) => setData(data))
-  }, [setData])
+  const items = useRecoilValue(ListItemState)
 
   return (
     <div>
-      <Accordion items={data} />
+      <Accordion items={items} />
     </div>
   )
 }

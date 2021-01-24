@@ -1,64 +1,42 @@
-import React, { useEffect, useState, useCallback } from "react"
+import React, { useEffect, useState } from "react"
 import Accordion from "components/Accordion/Accordion"
 import * as Style from "./AccordionItem.style"
 import IItem from "typings/IITem"
 import { ReactComponent as IconDown } from "styles/img/down.svg"
+import UpdateListState from "stores/selectors/UpdateListState"
+import { useSetRecoilState } from "recoil"
 
 interface AccordionItemProp {
   item: IItem
-  parentChecked?: boolean
-  nv: number
-  onChecked: (checked: boolean) => void
 }
 
-const AccordionItem = ({
-  item,
-  parentChecked = false,
-  nv,
-  onChecked
-}: AccordionItemProp) => {
-  const { id, name, children } = item
+const AccordionItem = ({ item }: AccordionItemProp) => {
+  const { id, name, children, level } = item
   const [expanded, setExpanded] = useState(false)
   const [count, setCount] = useState(0)
-  const [checked, setChecked] = useState(false)
-  const [dispachParentChecked, setDispachParentChecked] = useState(false)
+  const setUpdateListState = useSetRecoilState(UpdateListState)
+  const checked =
+    (item.checked === undefined ? false : item.checked) || count > 0
 
   const handleChange = () => {
-    if (checked) setCount(0)
-    else setCount(children.length)
-    setDispachParentChecked(!checked)
-    onChecked(!checked)
-    setChecked(!checked)
+    const updateChecked: boolean =
+      typeof item.checked !== "undefined" ? !item.checked : true
+
+    setUpdateListState([{ ...item, checked: updateChecked }])
   }
 
-  const handleChecked = (checked: boolean) =>
-    checked
-      ? setCount((oldCount) => ++oldCount)
-      : setCount((oldCount) => (oldCount - 1 < 0 ? 0 : --oldCount))
-
-  const updateParentChecked = useCallback(
-    (parentChecked: boolean) => {
-      setChecked(parentChecked)
-      if (parentChecked) setCount(children.length)
-    },
-    [setCount, children, setChecked]
-  )
-
   useEffect(() => {
-    updateParentChecked(parentChecked)
-  }, [updateParentChecked, parentChecked])
-
-  useEffect(() => {
-    if (count) setChecked(true)
-  }, [count])
+    setCount(item.children.filter((child) => child.checked).length)
+  }, [item.children])
 
   return (
     <Style.AccordionItem
+      data-checked={checked}
       data-count={count}
-      data-level={nv}
+      data-level={level}
       data-total={children.length}
       data-testid={`accordion-item-${id}`}
-      nv={nv}
+      nv={level}
       count={count}
       total={children.length}
       expanded={expanded}
@@ -79,16 +57,10 @@ const AccordionItem = ({
         )}
       </div>
       {children.length > 0 && (
-        <Accordion
-          items={children}
-          parentChecked={dispachParentChecked}
-          nv={++nv}
-          onChecked={handleChecked}
-          expanded={expanded}
-        />
+        <Accordion items={children} expanded={expanded} />
       )}
     </Style.AccordionItem>
   )
 }
 
-export default AccordionItem
+export default React.memo(AccordionItem)
