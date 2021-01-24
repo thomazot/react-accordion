@@ -25,20 +25,20 @@ Estrutura desenvolvida objeto db.json
   }]
 ```
 
-##### []Comportamento:
+##### Comportamento:
 
 - Para cada item, o usuário deve poder marcar o checkbox dessa linha.
 - Para cada item que tenha filhos (ou seja, um item pai), quando o usuário marcar ou desmarcar o checkbox, o estado deve ser cascateado a todos os seus descendentes.
 - Para cada item que seja um item pai, o usuário deve ser capaz de mostrar ou esconder os itens internos.
 
-##### []Liberdade:
+##### Liberdade:
 
 - Você pode usar qualquer tecnologia que melhor lhe servir.
 - Você é livre para estruturar o projeto da maneira que achar mais organizada.
 - Você é livre para implementar o código em qualquer padrão que achar mais adequado.
 - Você pode adicionar funcionalidades ao componente como desejar, mas não fuja da simplicidade.
 
-##### []Nós valorizamos atenção para os seguintes pontos:
+##### Nós valorizamos atenção para os seguintes pontos:
 
 - Acoplamento e coesão
 - Testes
@@ -46,6 +46,6 @@ Estrutura desenvolvida objeto db.json
 - Recuperação de estado (por exemplo: recuperar estado dos checkboxes após um page refresh)
 - Experiência do usuário (área de clique, scroll jump, etc.)
 
-## Example Github Pages
+## Exemplo no Github Pages
 
-[Example Github Pages](https://thomazot.github.io/react-accordion/)
+[Link do Exercicio](https://thomazot.github.io/react-accordion/)
