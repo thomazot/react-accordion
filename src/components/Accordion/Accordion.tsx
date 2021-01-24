@@ -5,29 +5,14 @@ import IItem from "typings/IITem"
 
 interface AccordionProp {
   items: IItem[]
-  parentChecked?: boolean
-  nv?: number
-  onChecked?: (checked: boolean) => void
   expanded?: boolean
 }
 
-const Accordion = ({
-  items,
-  parentChecked = false,
-  nv = 1,
-  onChecked = () => {},
-  expanded = true
-}: AccordionProp) => {
+const Accordion = ({ items, expanded = true }: AccordionProp) => {
   return (
     <Style.Accordion aria-expanded={expanded}>
       {items.map((item) => (
-        <AccordionItem
-          key={item.id}
-          item={item}
-          parentChecked={parentChecked}
-          nv={nv}
-          onChecked={onChecked}
-        />
+        <AccordionItem key={item.id} item={item} />
       ))}
     </Style.Accordion>
   )
