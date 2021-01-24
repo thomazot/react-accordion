@@ -3,7 +3,7 @@ type TypeItem = {
   name: string
   level: number
   children: IItem[]
-  checked: undefined | boolean
+  checked?: boolean
 }
 
 export default interface IItem extends TypeItem {}

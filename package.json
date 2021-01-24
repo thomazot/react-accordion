@@ -9,8 +9,7 @@
       "!src/**/*.{style,styl}.{ts,tsx}",
       "!src/styles/**/*",
       "!src/typings/**/*",
-      "!src/react-app-env.d.ts",
-      "!src/stores/selectors/UpdateListState.ts"
+      "!src/react-app-env.d.ts"
     ],
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
