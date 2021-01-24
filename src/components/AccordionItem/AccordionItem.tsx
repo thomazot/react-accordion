@@ -21,10 +21,12 @@ const AccordionItem = ({
   const [expanded, setExpanded] = useState(false)
   const [count, setCount] = useState(0)
   const [checked, setChecked] = useState(false)
+  const [dispachParentChecked, setDispachParentChecked] = useState(false)
 
   const handleChange = () => {
     if (checked) setCount(0)
     else setCount(children.length)
+    setDispachParentChecked(!checked)
     onChecked(!checked)
     setChecked(!checked)
   }
@@ -47,7 +49,7 @@ const AccordionItem = ({
   }, [updateParentChecked, parentChecked])
 
   useEffect(() => {
-    if (count > 1) setChecked(true)
+    if (count) setChecked(true)
   }, [count])
 
   return (
@@ -79,7 +81,7 @@ const AccordionItem = ({
       {children.length > 0 && (
         <Accordion
           items={children}
-          parentChecked={checked}
+          parentChecked={dispachParentChecked}
           nv={++nv}
           onChecked={handleChecked}
           expanded={expanded}
