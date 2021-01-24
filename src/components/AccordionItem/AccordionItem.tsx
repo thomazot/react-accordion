@@ -19,10 +19,7 @@ const AccordionItem = ({ item }: AccordionItemProp) => {
     (item.checked === undefined ? false : item.checked) || count > 0
 
   const handleChange = () => {
-    const updateChecked: boolean =
-      typeof item.checked !== "undefined" ? !item.checked : true
-
-    setUpdateListState([{ ...item, checked: updateChecked }])
+    setUpdateListState([{ ...item, checked: !checked }])
   }
 
   useEffect(() => {
@@ -31,7 +28,8 @@ const AccordionItem = ({ item }: AccordionItemProp) => {
 
   return (
     <Style.AccordionItem
-      data-checked={checked}
+      aria-checked={checked}
+      aria-expanded={expanded}
       data-count={count}
       data-level={level}
       data-total={children.length}
@@ -51,7 +49,11 @@ const AccordionItem = ({ item }: AccordionItemProp) => {
         />
         <label htmlFor={`accordion-item-${id}`}>{name}</label>
         {children.length > 0 && (
-          <button onClick={() => setExpanded(!expanded)} type="button">
+          <button
+            aria-label="ver mais"
+            onClick={() => setExpanded(!expanded)}
+            type="button"
+          >
             <IconDown fill="currentColor" width={20} height={20} />
           </button>
         )}
